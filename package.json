@@ -1,5 +1,5 @@
 {
-  "name": "pwa-starter",
+  "name": "mwc-material-pwa-starter",
   "version": "0.0.1",
   "description": "A starter kit for building PWAs!",
   "main": "index.js",
@@ -8,28 +8,103 @@
     "build": "rimraf dist/ && tsc && rollup -c",
     "build:watch": "tsc --watch",
     "build:dev": "tsc",
+    "lint:eslint": "eslint --ext .ts,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .ts,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" \"**/*.ts\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "docs": "npx web-component-analyzer src --format json --outFile custom-elements.json",
     "start": "concurrently \"tsc --watch\" \"es-dev-server --app-index index.html --compatibility none --node-resolve --watch --open\"",
-    "dev": "concurrently \"tsc --watch\" \"es-dev-server --app-index index.html --compatibility none --node-resolve --watch --open\""
+    "dev": "concurrently \"tsc --watch\" \"es-dev-server --app-index index.html --compatibility none --node-resolve --watch --open\"",
+    "tsc:watch": "tsc --watch",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@pwabuilder/pwainstall": "^1.6.2",
     "@vaadin/router": "^1.7.1",
-    "lit-element": "^2.3.1"
+    "@material/mwc-button": "^0.18.0",
+    "@material/mwc-checkbox": "^0.18.0",
+    "@material/mwc-circular-progress": "^0.18.0",
+    "@material/mwc-circular-progress-four-color": "^0.18.0",
+    "@material/mwc-dialog": "^0.18.0",
+    "@material/mwc-drawer": "^0.18.0",
+    "@material/mwc-fab": "^0.18.0",
+    "@material/mwc-floating-label": "^0.18.0",
+    "@material/mwc-formfield": "^0.18.0",
+    "@material/mwc-icon": "^0.18.0",
+    "@material/mwc-icon-button": "^0.18.0",
+    "@material/mwc-icon-button-toggle": "^0.18.0",
+    "@material/mwc-line-ripple": "^0.18.0",
+    "@material/mwc-linear-progress": "^0.18.0",
+    "@material/mwc-list": "^0.18.0",
+    "@material/mwc-menu": "^0.18.0",
+    "@material/mwc-notched-outline": "^0.18.0",
+    "@material/mwc-radio": "^0.18.0",
+    "@material/mwc-ripple": "^0.18.0",
+    "@material/mwc-select": "^0.18.0",
+    "@material/mwc-slider": "^0.18.0",
+    "@material/mwc-snackbar": "^0.18.0",
+    "@material/mwc-switch": "^0.18.0",
+    "@material/mwc-tab": "^0.18.0",
+    "@material/mwc-tab-bar": "^0.18.0",
+    "@material/mwc-tab-indicator": "^0.18.0",
+    "@material/mwc-tab-scroller": "^0.18.0",
+    "@material/mwc-textarea": "^0.18.0",
+    "@material/mwc-textfield": "^0.18.0",
+    "@material/mwc-top-app-bar": "^0.18.0",
+    "@material/mwc-top-app-bar-fixed": "^0.18.0",
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "material-components-web": "^3.1.0",
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/compat-data": "^7.11.0",
+    "@open-wc/building-rollup": "^1.0.0",
+    "@open-wc/eslint-config": "^2.0.0",
     "@open-wc/rollup-plugin-html": "^1.1.0",
     "@rollup/plugin-strip": "^1.3.2",
+    "@types/node": "13.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
     "concurrently": "^5.1.0",
-    "es-dev-server": "^1.46.5",
+    "es-dev-server": "^1.5.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "gh-pages": "^3.1.0",
+    "husky": "^1.0.0",
+    "lint-staged": "^10.0.0",
     "lit-analyzer": "^1.1.10",
-    "rimraf": "^3.0.2",
+    "prettier": "^2.0.4",
+    "rimraf": "^2.6.3",
     "rollup": "^2.15.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-workbox": "^5.0.1",
-    "typescript": "^3.9.5"
+    "serialize-javascript": ">=3.1.0",
+    "tslib": "^1.11.0",
+    "typescript": "^3.9.5",
+    "web-component-analyzer": "^1.1.6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

@@ -1,4 +1,3 @@
-
 /*
   This file is used for all of your global styles and CSS variables.
   Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
@@ -8,7 +7,30 @@
   --font-family: sans-serif;
 }
 
-html, body {
+body.unresolved * {
+  opacity: 0;
+}
+
+body .loading {
+  display: none;
+}
+
+body.unresolved .loading {
+  display: block;
+  opacity: 1;
+}
+
+body {
+  margin: 0px;
+  font-family: Roboto, sans-serif;
+}
+
+body * {
+  transition: opacity ease-in 0.2s;
+}
+
+html,
+body {
   font-family: var(--font-family);
   padding: 0;
   margin: 0;

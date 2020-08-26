@@ -1,0 +1,36 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "app-header",
+      "path": "./src/script/components/header.ts",
+      "attributes": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"PWA Starter\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "attribute": "title",
+          "type": "string",
+          "default": "\"PWA Starter\""
+        }
+      ]
+    },
+    {
+      "name": "material-demo",
+      "path": "./src/script/components/material-demo.ts"
+    },
+    {
+      "name": "app-about",
+      "path": "./src/script/pages/app-about.ts"
+    },
+    {
+      "name": "app-index",
+      "path": "./src/script/pages/app-index.ts"
+    }
+  ]
+}
