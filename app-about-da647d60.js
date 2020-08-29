@@ -1,4 +1,4 @@
-import{L as e,c as t,h as r,a as o}from"./app-index-d0e16766.js";let c=class extends e{static get styles(){return t`
+import{L as e,c as t,h as r,a as o}from"./app-index-df72db08.js";let c=class extends e{static get styles(){return t`
     `}constructor(){super()}render(){return r`
       <div>
         <h2>About Page</h2>
