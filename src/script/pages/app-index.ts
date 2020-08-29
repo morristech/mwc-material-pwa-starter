@@ -1,7 +1,5 @@
 import { LitElement, css, html, customElement } from 'lit-element';
 
-import './app-home';
-
 import { Router } from '@vaadin/router';
 import '@pwabuilder/pwainstall';
 
